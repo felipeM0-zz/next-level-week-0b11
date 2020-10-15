@@ -9,10 +9,11 @@
 #page-map aside {
   width: 400px;
   background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
-  padding: 50px 80px;
+  padding: 30px 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 #page-map aside h2 {
@@ -40,7 +41,9 @@
   z-index: 5;
 }
 
-#page-map .create-orphanage {
+#page-map .create-orphanage,
+#page-map .back-page,
+#page-map aside .top-page {
   position: absolute;
   right: 40px;
   bottom: 40px;
@@ -52,7 +55,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 999;
+}
+
+#page-map aside .top-page {
+  width: 35px;
+  height: 35px;
+  right: 20px;
+  bottom: 17px;
+  background: #ffd666;
+  border-radius: 10px;
+  display: none;
+}
+
+#page-map .back-page {
+  border: none;
+  right: auto;
+  background: #ffd666;
+  left: 40px;
+  display: none;
+  outline: none;
 }
 
 #page-map .create-orphanage:hover {
@@ -100,7 +122,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     text-align: center;
   }
   #page-map aside header img {
@@ -127,13 +149,23 @@
   #page-map aside footer strong {
     margin-left: 3px;
   }
-  #page-map .create-orphanage {
+
+  #page-map aside .top-page {
+    display: flex;
+  }
+
+  #page-map .create-orphanage,
+  #page-map .back-page {
     width: 40px;
     height: 40px;
     right: 20px;
     bottom: 20px;
     border-radius: 10px;
-    position: fixed;
+  }
+  #page-map .back-page {
+    right: auto;
+    left: 20px;
+    display: flex;
   }
   #page-map
     .leaflet-container

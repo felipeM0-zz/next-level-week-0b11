@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import { FiPlus, FiArrowRight } from "react-icons/fi";
+import { FiPlus, FiArrowRight, FiArrowUp, FiArrowDown } from "react-icons/fi";
 
 import mapMarkerImg from "../images/map-marker.svg";
 import mapIcon from "../utils/mapIcon";
@@ -25,6 +25,10 @@ const OrphanagesMap = () => {
     });
   }, []);
 
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div id="page-map">
       <aside>
@@ -40,6 +44,10 @@ const OrphanagesMap = () => {
           <strong>São Luís</strong>
           <span>Maranhão</span>
         </footer>
+
+        <a href="#back-page" className="top-page">
+          <FiArrowDown size={25} color="#8d734b" />
+        </a>
       </aside>
 
       <Map
@@ -47,6 +55,14 @@ const OrphanagesMap = () => {
         zoom={15}
         style={{ width: "100%", height: "100%" }}
       >
+        <button onClick={scrollTop} id="back-page" className="back-page">
+          <FiArrowUp size={32} color="#8d734b" />
+        </button>
+
+        <Link to="/orphanages/create" className="create-orphanage">
+          <FiPlus size={32} color="#FFF" />
+        </Link>
+
         <TileLayer
           url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
         />
@@ -73,10 +89,6 @@ const OrphanagesMap = () => {
           );
         })}
       </Map>
-
-      <Link to="/orphanages/create" className="create-orphanage">
-        <FiPlus size={32} color="#FFF" />
-      </Link>
     </div>
   );
 };
