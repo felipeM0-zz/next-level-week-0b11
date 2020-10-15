@@ -61,7 +61,7 @@ form.create-orphanage-form .input-block label {
 form.create-orphanage-form .input-block label span {
   font-size: 14px;
   color: #8fa7b3;
-  margin-left: 24px;
+  margin-left: 5px;
   padding-top: 2px;
   line-height: 24px;
 }
@@ -171,4 +171,68 @@ form.create-orphanage-form button.confirm-button svg {
 
 form.create-orphanage-form button.confirm-button:hover {
   background: #36cf82;
+}
+
+@media (max-width: 768px) {
+  form.create-orphanage-form {
+    width: 80%;
+    min-width: 320px;
+    padding: 15px 30px;
+  }
+  form.create-orphanage-form > fieldset:nth-child(1),
+  form.create-orphanage-form > fieldset:nth-child(2) {
+    margin-top: 25px;
+  }
+  form.create-orphanage-form .input-block .images-container .new-image,
+  form.create-orphanage-form .input-block .images-container img {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+  }
+  form.create-orphanage-form .input-block label span {
+    font-size: 12px;
+  }
+  form.create-orphanage-form .input-block label {
+    font-size: 15px;
+  }
+  form.create-orphanage-form .leaflet-container {
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  form.create-orphanage-form .input-block input {
+    height: 50px;
+  }
+  form.create-orphanage-form .input-block input,
+  form.create-orphanage-form .input-block textarea {
+    border-radius: 10px;
+  }
+  form.create-orphanage-form .input-block .button-select button {
+    height: 50px;
+  }
+  form.create-orphanage-form .input-block .button-select button:first-child {
+    border-radius: 10px 0px 0px 10px;
+  }
+  form.create-orphanage-form .input-block .button-select button:last-child {
+    border-radius: 0px 10px 10px 0px;
+  }
+  form.create-orphanage-form button.confirm-button {
+    margin-top: 40px;
+  }
+  form.create-orphanage-form fieldset legend {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  form.create-orphanage-form {
+    width: 90%;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  form.create-orphanage-form {
+    width: 100%;
+  }
 }

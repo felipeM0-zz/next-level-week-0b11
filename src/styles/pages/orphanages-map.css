@@ -89,3 +89,62 @@
 #page-map .map-popup .leaflet-popup-tip-container {
   display: none;
 }
+
+@media (max-width: 768px) {
+  #page-map aside {
+    padding: 15px 30px;
+    width: 100%;
+  }
+  #page-map aside header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  #page-map aside header img {
+    width: 40px;
+    height: 40px;
+  }
+  #page-map aside h2 {
+    margin: 10px 0;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  #page-map aside p {
+    font-size: 12px;
+    line-height: normal;
+  }
+  #page-map {
+    display: block;
+  }
+  #page-map aside footer {
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 10px;
+  }
+  #page-map aside footer strong {
+    margin-left: 3px;
+  }
+  #page-map .create-orphanage {
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 10px;
+    position: fixed;
+  }
+  #page-map
+    .leaflet-container
+    .leaflet-control-container
+    .leaflet-top
+    .leaflet-control-zoom
+    a {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
