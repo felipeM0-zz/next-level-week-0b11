@@ -51,8 +51,9 @@ const OrphanagesMap = () => {
       </aside>
 
       <Map
-        center={[-2.5214101, -44.2107223]}
-        zoom={15}
+        center={[-16.2529343, -55.2987164]}
+        zoom={4}
+        setView
         style={{ width: "100%", height: "100%" }}
       >
         <button onClick={scrollTop} id="back-page" className="back-page">
