@@ -23,6 +23,8 @@ export default function CreateOrphanage() {
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
+  const [showAlertMessage, setShowAlertMessage] = useState(false);
+  const [msg, setMsg] = useState("");
 
   const handleMapClick = (event: LeafletMouseEvent) => {
     const { lat, lng } = event.latlng;
@@ -56,6 +58,20 @@ export default function CreateOrphanage() {
 
     const { latitude, longitude } = position;
 
+    if (
+      latitude === 0 ||
+      longitude === 0 ||
+      name === "" ||
+      about === "" ||
+      about.length > 300 ||
+      instructions === "" ||
+      opening_hours === ""
+    ) {
+      setMsg("Verifique campos vazios ou fora dos valores permitidos");
+      setShowAlertMessage(true);
+      return;
+    }
+
     const data = new FormData();
 
     data.append("name", name);
@@ -72,9 +88,12 @@ export default function CreateOrphanage() {
 
     await api.post("orphanages", data);
 
-    alert("Cadastro realizado com sucesso!");
+    setShowAlertMessage(true);
+    setMsg("Cadastro realizado com sucesso!");
 
-    history.push("/app");
+    setTimeout(() => {
+      history.push("/app");
+    }, 1200);
   };
 
   const AddressSearch = withLeaflet(AddressControl);
@@ -82,6 +101,23 @@ export default function CreateOrphanage() {
   return (
     <div id="page-create-orphanage">
       <Sidebar />
+
+      {showAlertMessage && (
+        <div className="modal-content">
+          <div className="center-modal">
+            <p>Aviso</p>
+            <div className="message-content">
+              <p>{msg}</p>
+            </div>
+
+            <div className="button-content">
+              <button onClick={() => setShowAlertMessage(false)}>
+                <p>Entendi</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main>
         <form onSubmit={handleSubmit} className="create-orphanage-form">
